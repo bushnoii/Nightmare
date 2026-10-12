@@ -43,14 +43,19 @@ namespace Nightmare
             Console.WriteLine("---------------------------------");
             Console.WriteLine("Хотите напасть? Да/Нет");
             string answer = Console.ReadLine();
-            if (answer == "Да")
+            if (answer == "да")
             {
-                int.TryParse(Console.ReadLine(), out heroDamage);
                 enemyHealth -= heroDamage;
+                Console.SetCursorPosition(23, 4);
+                Console.WriteLine(enemyHealth);
+                Console.SetCursorPosition(0, 15);
             }
-            else
+            else if (answer == "нет")
             {
                 heroHealth -= enemyDamage;
+                Console.SetCursorPosition(17, 6);
+                Console.WriteLine(heroHealth);
+                Console.SetCursorPosition (0, 15);
             }
 
 
