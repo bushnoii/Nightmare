@@ -24,29 +24,33 @@ namespace Nightmare
             Console.WriteLine("|       Хотите начать?          |");
             Console.WriteLine("|                               |");
             Console.WriteLine("---------------------------------");
-            Console.ReadLine( );
+            Console.ReadLine();
 
             Console.SetCursorPosition(posX, posY);
+            Console.Clear();
             Console.WriteLine("---------------------------------");
             Console.WriteLine("|                               |");
+            Console.Write($"{"|", -8}");
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("|        На вас напали!         |");
+            Console.Write("На вас напали!");               
             Console.ResetColor();
+            Console.WriteLine($"{"|", 11}");
             Console.WriteLine("|                               |");
-            Console.WriteLine("| Здоровье Противника: 50       |");
+            Console.WriteLine("| Здоровье Противника: " + enemyHealth + $"{"|", 8}");
             Console.WriteLine("|                               |");
-            Console.WriteLine("| Ваше здоровье: 50             |");
-            Console.WriteLine("| Ваш урон: 5                   |");
+            Console.WriteLine("| Ваше здоровье: " + heroHealth + $"{"|", 14}");
+            Console.WriteLine("| Ваш урон: "  + heroDamage  + $"{"|", 20}");
             Console.WriteLine("---------------------------------");
             Console.WriteLine("Хотите напасть? Да/Нет");
             string answer = Console.ReadLine();
             if (answer == "Да")
             {
-
+                int.TryParse(Console.ReadLine(), out heroDamage);
+                enemyHealth -= heroDamage;
             }
             else
             {
-
+                heroHealth -= enemyDamage;
             }
 
 
